@@ -23,7 +23,7 @@ const corsOptions = {
 };
 
 const client = createClient({
-  url: "redis://default:1071ae15f7e14828ab5259737cc3286e@evolving-snipe-33602.upstash.io:33602",
+  url: process.env.REDIS_URL,
 });
 
 await client.connect().then(() => {});
