@@ -25,12 +25,14 @@ const Page2 = () => {
 
   return (
     <div className="p-2">
-      <Table aria-label="Example static collection table">
+      <Table aria-label="Example static collection table" isStriped='true'>
         <TableHeader>
           <TableColumn>Username</TableColumn>
           <TableColumn>Language</TableColumn>
           <TableColumn>Stdin</TableColumn>
           <TableColumn>Source Code</TableColumn>
+          <TableColumn>Output</TableColumn>
+          <TableColumn>Time</TableColumn>
         </TableHeader>
         <TableBody>
           {data.map((row, ind) => {
@@ -40,6 +42,8 @@ const Page2 = () => {
                   <TableCell>{row.prog_lang}</TableCell>
                   <TableCell><Textarea size="sm" value={row.stdin} isReadOnly /></TableCell>
                   <TableCell><Textarea value={row.src_code} isReadOnly /></TableCell>
+                  <TableCell><Textarea size="sm" value={"running code..."} isReadOnly /></TableCell>
+                  <TableCell>{row.timestamp}</TableCell>
                 </TableRow>
               );
             })}
