@@ -3,14 +3,16 @@ import { useState } from "react";
 import { Select, SelectItem } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 
 const Page1 = () => {
+  const navigate = useNavigate();
   let [username, setUsername] = useState("")
   let [stdin, setStdin] = useState("")
   let [srccode, setSrcscode] = useState("")
   const [value, setValue] = useState(new Set([]));
-  console.log(import.meta.env.VITE_BACKEND_URL)
+  let backend_url = import.meta.env.VITE_BACKEND_URL;
   let langs = [
     {
       label: "C++",
@@ -31,13 +33,17 @@ const Page1 = () => {
   ];
 
   const handlesubmit =  async () =>{
-    let res = await axios.post(import.meta.env.VITE_BACKEND_URL,{
+    let res = await axios.post(backend_url+'/submit',{
       username,
       value,
       stdin,
       srccode
     })
-    window.location.reload()
+    setSrcscode("")
+    setStdin("")
+    setUsername("")
+    setValue(new Set([]))
+    navigate('/table')
     console.log(res)
   }
 
