@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 var corsOptions = {
   origin: process.env.FRONTEND_URL,
-  optionsSuccessStatus: 200, 
+  optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
@@ -27,8 +27,7 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
   if (err) throw err;
-  console.log('Connected to the MySQL server.');
-
+  
   let createTableQuery = `CREATE TABLE IF NOT EXISTS user_data (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
@@ -40,7 +39,6 @@ connection.connect((err) => {
 
   connection.query(createTableQuery, (err, results) => {
     if (err) throw err;
-    console.log('Table created or already exists.');
   });
 });
 
@@ -75,6 +73,4 @@ app.get("/getdata", async (req, res) => {
   });
 });
 
-app.listen(4000, () => {
-  console.log("Liseting on port 4000");
-});
+app.listen(4000, () => {});
