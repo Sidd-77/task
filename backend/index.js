@@ -13,6 +13,8 @@ const jsonParser = bodyParser.json();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Testing middleware
 // app.use((req, res, next) => {
 //     console.log(`Received a ${req.method} request on ${req.url}`);
 //     next();
@@ -79,7 +81,7 @@ app.post("/submit", async (req, res) => {
     headers: {
       'content-type': 'application/json',
       'Content-Type': 'application/json',
-      'X-RapidAPI-Key': '7eb5617339mshc612bc23a4e3cf3p14c236jsndd4b8ce1b04c',
+      'X-RapidAPI-Key': process.env.JUDGE_KEY,
       'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
     },
     data: JSON.stringify({
@@ -99,7 +101,7 @@ app.post("/submit", async (req, res) => {
       },
       url: `https://judge0-ce.p.rapidapi.com/submissions/${token}`,
       headers: {
-        'X-RapidAPI-Key': '7eb5617339mshc612bc23a4e3cf3p14c236jsndd4b8ce1b04c',
+        'X-RapidAPI-Key': process.env.JUDGE_KEY,
         'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
       }
     };

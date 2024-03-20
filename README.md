@@ -5,7 +5,7 @@
 
   
 
-This project is a full-stack web application built with Express.js, MySQL, Redis, React, and Next UI. It uses Express.js for the backend, MySQL for the database, Redis for caching, React for the frontend, and Next UI for the UI library.
+This project is a full-stack web application built with Express.js, MySQL, Redis, React, and Next UI. It uses Express.js for the backend, MySQL for the database, Redis for caching, React for the frontend, and Next UI for the UI library. It also executes code online using Judge0 api although impletention is partial.
 
   
 
@@ -23,7 +23,7 @@ This project is a full-stack web application built with Express.js, MySQL, Redis
 
 -  **UI Library**: Next UI
 
-  
+- **Online Code Exection**: Judge0
 
 ## Environment Variables
 
