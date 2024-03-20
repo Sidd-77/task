@@ -47,6 +47,8 @@ The project uses the following environment variables for backend:
 
 -  `FRONTEND_URL`: Frontend url for cors.
 
+-  `JUDGE_KEY`: Key provided by RapidApi for Judge0.
+
   
 
 The project uses the following environment variables for frontend:
