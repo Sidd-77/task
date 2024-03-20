@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const Page1 = () => {
   const navigate = useNavigate();
+  let [isLoading, setIsLoading] = useState(false)
   let [username, setUsername] = useState("")
   let [stdin, setStdin] = useState("")
   let [srccode, setSrcscode] = useState("")
@@ -33,6 +34,7 @@ const Page1 = () => {
   ];
 
   const handlesubmit =  async () =>{
+    setIsLoading(true)
     let res = await axios.post(backend_url+'/submit',{
       username,
       value,
@@ -43,6 +45,7 @@ const Page1 = () => {
     setStdin("")
     setUsername("")
     setValue(new Set([]))
+    setIsLoading(false)
     navigate('/table')
     console.log(res)
   }
@@ -85,7 +88,7 @@ const Page1 = () => {
             className=""
             onChange={e => setSrcscode(e.target.value)}
           />
-        <Button color="primary" onClick={handlesubmit}>
+        <Button color="primary" onClick={handlesubmit} isLoading={isLoading}>
             Submit
         </Button>
         </CardBody>

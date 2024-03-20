@@ -93,5 +93,5 @@ The project uses the following environment variables for frontend:
 	`node index.js`
 
 5. Start the frontend server:
-6. 
+
 	`npm run dev`
